@@ -1,6 +1,6 @@
 import { synthSnapshot } from 'projen/lib/util/synth';
-import { JsiiProject } from '../../src/jsii';
-import { NpmPackage } from '../../src/npm';
+import { JsiiProject } from '../../../src/projects/jsii';
+import { NpmPackage } from '../../../src/projects/npm';
 
 describe('CodeOwners', () => {
   it('matches the snapshot with a CODEOWERS file', () => {
@@ -8,7 +8,6 @@ describe('CodeOwners', () => {
       author: 'Test Person',
       authorAddress: 'test@example.com',
       codeOwners: ['test-team'],
-      defaultReleaseBranch: 'main',
       name: 'test',
       repositoryUrl: 'https://github.com/example/example.git',
     });
@@ -21,7 +20,6 @@ describe('CodeOwners', () => {
   it('matches the snapshot and includes CODEOWNERS in the npmignore file', () => {
     const project = new NpmPackage({
       codeOwners: ['test-team'],
-      defaultReleaseBranch: 'main',
       name: 'test',
     });
 
